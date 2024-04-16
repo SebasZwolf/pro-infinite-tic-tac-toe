@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	color-scheme: dark;
+
+	--fnt-heading : 'Domine', 'Nunito Sans', system-ui, sans-serif;
+	--fnt-regular : 'Nunito Sans', system-ui, sans-serif;
+
+	font-size: 100%;
+}
+
+html,body {
+	margin :0;
+	padding : 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+html.dark { 
+	--hierarchy-s : #ffffff;
+	--hierarchy-0 : #f1f5f9;
+	--hierarchy-1 : #94a3b8;
+	--hierarchy-2 : #64748b;
+	--hierarchy-3 : #3f3f46;
+
+	--panel-color : var(--hhp-dark-2); 
+	--bg-body : var(--hhp-dark-1);
+	--block-color : var(--hhp-dark-0); 
+}
+
+
+body {
+	background-color: var(--hhp-dark-1);
+	background-image: none;
+
+	color : var(--hierarchy-0);
+	background-color: var(--hhp-dark-1);
+	font-family: var(--fnt-regular);
+	
+	--small : 0;
+}
+
+@media (max-width : 768px) {
+	body { --small : 1; }
+}
+
+:where(h1,h2,h3,h4,h5,h6) {
+	font-family: var(--fnt-heading);
+}
+
+#root {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}

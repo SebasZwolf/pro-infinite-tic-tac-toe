@@ -1,0 +1,37 @@
+.board {
+
+}
+
+.cell {
+	& {
+		border-color: var(--theme-color);
+		color: var(--theme-color);
+		outline: none;
+		font-size: large;
+	}
+
+	&:not([data-status="0"]) {
+		transition: all .5s;
+	}
+	&[data-status="0"]  { 
+		--theme-color: #ddd;
+		transition: all .2s;
+	}	
+	&[data-status="-1"] { --theme-color: lime; }	
+	&[data-status="1"]  { --theme-color: #f48; }
+
+	&[data-status="-1"]::after { content: '×' }	
+	&[data-status="1"]::after { content: '⚬' }
+
+	&[data-limbo="true"] {
+		animation: pulse 1.75s ease-in-out 0s infinite forwards normal;
+	}
+}	
+
+@keyframes pulse {
+	50%{
+		opacity: .5;
+		scale : .95;
+	}
+}
+
