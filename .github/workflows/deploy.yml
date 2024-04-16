@@ -41,6 +41,7 @@ jobs:
         run: npm run build
         env : 
           VITE_server_URL : ${{ vars.VITE_server_URL }}
+          VITE_base_URL : ${{ vars.VITE_base_URL }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
