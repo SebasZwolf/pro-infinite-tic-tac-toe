@@ -83,7 +83,7 @@ export default function App({ socket : ss, player, emit } : Props) {
   };
 
   const [handleRetry, handleMenu] = useMemo(() => [
-    socket.emit.bind(null, 'rematch'),
+    () => socket.emit('rematch'),
     emit.bind(null),
   ], [socket]);
 

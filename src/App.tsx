@@ -1,8 +1,7 @@
-// import { MouseEventHandler, useEffect, useMemo, useState } from 'react';
 import { io, type Socket } from 'socket.io-client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
-import Board from './components/Board';
+import { useCallback, useRef, useState } from 'react';
+import OnlineBoard from './components/Board';
 import LocalBoard from './components/Board.local';
 
 enum gameStates {
@@ -79,7 +78,7 @@ function App() {
           <button onClick={CancelOnline} className=' block p-2 w-32 mx-auto border rounded hover:bg-hierarchy-0 hover:text-hierarchy-3 transition-colors cursor-pointer'>Cancel</button>
         </footer> }
         
-        { gameState === gameStates.playing && <Board socket={socket.current!} player={player.current} emit={handleQuit} /> }
+        { gameState === gameStates.playing && <OnlineBoard socket={socket.current!} player={player.current} emit={handleQuit} /> }
         { gameState === gameStates.local && <LocalBoard emit={handleQuit}/> }
       </div>
     </div>
